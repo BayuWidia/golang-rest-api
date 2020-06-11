@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/bayuwidia/echo-rest/db"
+	"github.com/bayuwidia/echo-rest/utils"
 )
 
 type User struct {
@@ -23,7 +24,9 @@ type User struct {
 
 func FetchAllUser() (Response, error) {
 	var obj User
+
 	var arrObj []User
+
 	var res Response
 
 	con := db.CreateCon()
@@ -49,9 +52,10 @@ func FetchAllUser() (Response, error) {
 		arrObj = append(arrObj, obj)
 	}
 
-	res.Status = http.StatusOK
-	res.Message = "Success"
-	res.Data = arrObj
+	res.ResponseCode = http.StatusOK
+	res.ResponseDesc = "Success"
+	res.ResponseTime = utils.DateToStdNow()
+	res.Result = arrObj
 
 	return res, nil
 
@@ -75,9 +79,10 @@ func StoreUser(name string, email string, password string, role string) (Respons
 		log.Fatal(err)
 	}
 
-	res.Status = http.StatusOK
-	res.Message = "Success"
-	res.Data = map[string]int{
+	res.ResponseCode = http.StatusOK
+	res.ResponseDesc = "Success"
+	res.ResponseTime = utils.DateToStdNow()
+	res.Result = map[string]int{
 		"result_id": userID,
 	}
 
@@ -103,9 +108,10 @@ func UpdateUser(id int, name string, email string, password string, role string)
 		log.Fatal(err)
 	}
 
-	res.Status = http.StatusOK
-	res.Message = "Success"
-	res.Data = map[string]int{
+	res.ResponseCode = http.StatusOK
+	res.ResponseDesc = "Success"
+	res.ResponseTime = utils.DateToStdNow()
+	res.Result = map[string]int{
 		"result_id": userID,
 	}
 
@@ -130,9 +136,10 @@ func DeleteUser(id int) (Response, error) {
 		log.Fatal(err)
 	}
 
-	res.Status = http.StatusOK
-	res.Message = "Success"
-	res.Data = map[string]int{
+	res.ResponseCode = http.StatusOK
+	res.ResponseDesc = "Success"
+	res.ResponseTime = utils.DateToStdNow()
+	res.Result = map[string]int{
 		"result_id": userID,
 	}
 

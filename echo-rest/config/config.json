@@ -4,5 +4,5 @@
 	"DB_PORT"     : "8191",
 	"DB_HOST"     : "192.168.2.26",
 	"DB_NAME"     : "dbdev",
-	"DB_SCHEMA"   : "laravel_api"
+	"DB_SCHEMA"   : "golang_starterkit"
 }
