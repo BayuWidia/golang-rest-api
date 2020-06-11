@@ -22,7 +22,7 @@ type User struct {
 	UpdatedAt       time.Time      `"json:"updateAt"`
 }
 
-func FetchAllUser() (Response, error) {
+func GetAllUser() (Response, error) {
 	var obj User
 
 	var arrObj []User

@@ -9,8 +9,8 @@ import (
 	"github.com/labstack/echo"
 )
 
-func FetchAllUser(c echo.Context) error {
-	result, err := models.FetchAllUser()
+func GetAllUser(c echo.Context) error {
+	result, err := models.GetAllUser()
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	}
